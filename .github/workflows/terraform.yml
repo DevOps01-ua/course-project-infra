@@ -45,12 +45,12 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -out=tfplan -input=false && terraform show -json tfplan > plan_output.json
+      run: terraform plan -out=tfplan -input=false && terraform show -json tfplan > plan_output.json && ls -l
 
     - uses: actions/upload-artifact@v2
       with:
         name: terraform-plan-artifact
-        path: ./plan_output.json
+        path: ./infrastructure/tfplan
 
   terraform-infra-develop-apply:
     name: 'Terraform'
@@ -84,7 +84,7 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: terraform-plan-artifact
-        path: ./plan_output.json
+        path: ./infrastructure/tfplan
 
     - run: terraform apply -input=false tfplan
 
