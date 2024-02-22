@@ -86,6 +86,5 @@ jobs:
         name: terraform-plan-artifact
         path: ./infrastructure/tfplan
 
-    - run: terraform apply -input=false tfplan
-
+    - run: terraform apply -auto-approve < tfplan
 
