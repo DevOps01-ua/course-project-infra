@@ -1,5 +1,5 @@
 variable "environment" {
-  default = "develop"
+  default     = "develop"
   description = "Name of environment"
 
 }
@@ -11,6 +11,6 @@ variable "region" {
 
 
 variable "project_name" {
-  default = "course-project"
+  default     = "course-project"
   description = "Name of project|application"
 }
