@@ -50,7 +50,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: terraform-plan-artifact
-        path: ./infracore/plan_output.json
+        path: ./plan_output.json
 
   terraform-infra-develop-apply:
     name: 'Terraform'
@@ -84,7 +84,7 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: terraform-plan-artifact
-        path: ./infrastructure
+        path: ./plan_output.json
 
     - run: terraform apply -input=false tfplan
 
