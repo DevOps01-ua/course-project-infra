@@ -28,6 +28,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: configure aws credentials
+      uses: aws-actions/configure-aws-credentials@v3
+      with:
+        role-to-assume: arn:aws:iam::730335176685:role/github
+        role-session-name: terraform
+        aws-region: eu-central-1
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
